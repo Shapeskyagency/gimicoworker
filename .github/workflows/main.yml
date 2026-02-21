@@ -1,4 +1,4 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy Docusaurus
 
 on:
   push:
@@ -15,11 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
@@ -28,14 +26,14 @@ jobs:
         working-directory: docs-site
         run: npm install
 
-      - name: Build Docusaurus
+      - name: Build
         working-directory: docs-site
         run: npm run build
 
-      - name: Upload build folder
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs-site/build   # IMPORTANT for Docusaurus
+          path: docs-site/build
 
   deploy:
     needs: build
@@ -45,6 +43,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
