@@ -1,0 +1,35 @@
+# Development
+.env
+.env.*
+*.log
+.git/
+.github/
+.vscode/
+
+# Documentation site
+docs-site/
+
+# Database files
+data/*.db
+data/*.db-wal
+data/*.db-shm
+
+# Tests
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
+
+# Browser data (user sessions)
+browser-data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Build artifacts
+*.tgz
