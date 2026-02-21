@@ -22,6 +22,7 @@ const sidebars: SidebarsConfig = {
         'core-concepts/tools',
         'core-concepts/memory',
         'core-concepts/models',
+        'core-concepts/providers',
       ],
     },
     {
@@ -36,11 +37,28 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Social Media',
+      items: [
+        'social-media/whatsapp',
+        'social-media/instagram',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Telegram',
       items: [
         'telegram/setup',
         'telegram/multi-bot',
         'telegram/commands',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Advanced',
+      items: [
+        'advanced/vision-scraping',
+        'advanced/workflows',
+        'advanced/scheduler',
       ],
     },
     {

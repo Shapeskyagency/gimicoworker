@@ -3,15 +3,15 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'CLI-AGT',
-  tagline: 'Multi-Agent OS Control System powered by Gemini',
+  title: 'GimiCoworker',
+  tagline: 'Multi-AI Agent OS Control System — Create unlimited agents powered by Gemini, OpenAI, Claude & more',
   favicon: 'img/favicon.ico',
 
   future: {
     v4: true,
   },
 
-   url: "https://shapeskyagency.github.io",
+  url: "https://shapeskyagency.github.io",
   baseUrl: "/gimicoworker/",
 
   onBrokenLinks: 'throw',
@@ -43,13 +43,28 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'CLI-AGT',
+      title: 'GimiCoworker',
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Docs',
+        },
+        {
+          to: '/docs/getting-started/installation',
+          position: 'left',
+          label: 'Quick Start',
+        },
+        {
+          to: '/docs/guides/multi-agent-teams',
+          position: 'left',
+          label: 'Guides',
+        },
+        {
+          href: 'https://www.npmjs.com/package/gimicoworker',
+          label: 'npm',
+          position: 'right',
         },
         {
           href: 'https://github.com/shapeskyagency/gimicoworker',
@@ -62,35 +77,39 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             { label: 'Getting Started', to: '/docs/getting-started/installation' },
             { label: 'Core Concepts', to: '/docs/core-concepts/agents' },
-            { label: 'Telegram', to: '/docs/telegram/setup' },
+            { label: 'AI Providers', to: '/docs/core-concepts/providers' },
+            { label: 'CLI Reference', to: '/docs/cli-reference' },
           ],
         },
         {
-          title: 'Guides',
+          title: 'Features',
           items: [
             { label: 'Multi-Agent Teams', to: '/docs/guides/multi-agent-teams' },
-            { label: 'Folder Restrictions', to: '/docs/guides/folder-restrictions' },
-            { label: 'Deployment', to: '/docs/deployment/overview' },
+            { label: 'Telegram Bots', to: '/docs/telegram/setup' },
+            { label: 'Social Media', to: '/docs/social-media/whatsapp' },
+            { label: 'Workflows', to: '/docs/advanced/workflows' },
           ],
         },
         {
           title: 'Resources',
           items: [
+            { label: 'GitHub', href: 'https://github.com/shapeskyagency/gimicoworker' },
+            { label: 'npm Package', href: 'https://www.npmjs.com/package/gimicoworker' },
             { label: 'Google AI Studio', href: 'https://aistudio.google.com/apikey' },
-            { label: 'Gemini API Docs', href: 'https://ai.google.dev/docs' },
+            { label: 'Shapesky Agency', href: 'https://github.com/Shapeskyagency' },
           ],
         },
       ],
-      copyright: `Copyright ${new Date().getFullYear()} CLI-AGT. Built with Docusaurus.`,
+      copyright: `Copyright ${new Date().getFullYear()} GimiCoworker by Shapesky Agency. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'json', 'powershell'],
+      additionalLanguages: ['bash', 'json', 'powershell', 'typescript', 'python'],
     },
   } satisfies Preset.ThemeConfig,
 };

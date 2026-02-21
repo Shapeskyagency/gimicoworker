@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Deployment Overview
 
-Share CLI-AGT with others or deploy it on a server.
+Share GimiCoworker with others or deploy it on a server.
 
 ## Options
 
@@ -17,18 +17,18 @@ Share CLI-AGT with others or deploy it on a server.
 ## Quick Deploy to GitHub
 
 ```bash
-cd cli-agent
+cd gimicoworker
 git init
 git add .
 git commit -m "Initial commit"
-git remote add origin https://github.com/your-username/cli-agt.git
+git remote add origin https://github.com/your-username/gimicoworker.git
 git push -u origin main
 ```
 
 Others install:
 ```bash
-git clone https://github.com/your-username/cli-agt.git
-cd cli-agt
+git clone https://github.com/your-username/gimicoworker.git
+cd gimicoworker
 npm install
 cp .env.example .env
 # Edit .env with their API key

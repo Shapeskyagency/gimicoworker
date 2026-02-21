@@ -1,30 +1,233 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * GimiCoworker Docs — Modern Design System
  */
 
-/* You can override the default Infima variables here. */
+/* ─── Color Palette ─── */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #6c5ce7;
+  --ifm-color-primary-dark: #5a47e0;
+  --ifm-color-primary-darker: #5140dc;
+  --ifm-color-primary-darkest: #3a27c9;
+  --ifm-color-primary-light: #7e71ee;
+  --ifm-color-primary-lighter: #8a7ff1;
+  --ifm-color-primary-lightest: #a89df7;
+
+  --ifm-code-font-size: 92%;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-height: 4rem;
+  --ifm-footer-padding-vertical: 3rem;
+
+  --docusaurus-highlighted-code-line-bg: rgba(108, 92, 231, 0.1);
+
+  --gimi-gradient-primary: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 50%, #74b9ff 100%);
+  --gimi-gradient-accent: linear-gradient(135deg, #00cec9 0%, #6c5ce7 100%);
+  --gimi-bg-card: rgba(255, 255, 255, 0.7);
+  --gimi-border-card: rgba(108, 92, 231, 0.12);
+  --gimi-shadow-card: 0 2px 16px rgba(108, 92, 231, 0.08);
+  --gimi-shadow-card-hover: 0 8px 32px rgba(108, 92, 231, 0.16);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #a29bfe;
+  --ifm-color-primary-dark: #8b82fd;
+  --ifm-color-primary-darker: #7f74fd;
+  --ifm-color-primary-darkest: #5a4dfc;
+  --ifm-color-primary-light: #b9b4fe;
+  --ifm-color-primary-lighter: #c5c1ff;
+  --ifm-color-primary-lightest: #e4e2ff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(162, 155, 254, 0.15);
+
+  --gimi-bg-card: rgba(30, 30, 50, 0.6);
+  --gimi-border-card: rgba(162, 155, 254, 0.15);
+  --gimi-shadow-card: 0 2px 16px rgba(0, 0, 0, 0.3);
+  --gimi-shadow-card-hover: 0 8px 32px rgba(162, 155, 254, 0.15);
+}
+
+/* ─── Global Typography ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+/* ─── Navbar ─── */
+.navbar {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid var(--gimi-border-card);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(18, 18, 30, 0.88) !important;
+  border-bottom: 1px solid rgba(162, 155, 254, 0.1);
+}
+
+.navbar__title {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+/* ─── Sidebar ─── */
+.menu__link {
+  font-size: 0.9rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
+  font-weight: 600;
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background: linear-gradient(135deg, rgba(162, 155, 254, 0.12), rgba(90, 77, 252, 0.12));
+}
+
+/* ─── Docs Content ─── */
+.markdown h1:first-child {
+  font-size: 2.2rem;
+  background: var(--gimi-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+article .markdown {
+  max-width: 100%;
+}
+
+/* ─── Code Blocks ─── */
+.prism-code {
+  border-radius: 12px !important;
+  border: 1px solid var(--gimi-border-card) !important;
+}
+
+[data-theme='dark'] .prism-code {
+  background: rgba(18, 18, 30, 0.9) !important;
+}
+
+div[class^="codeBlockTitle"],
+div[class*=" codeBlockTitle"] {
+  border-radius: 12px 12px 0 0 !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Admonitions ─── */
+.alert {
+  border-radius: 12px;
+  border-left-width: 4px;
+}
+
+/* ─── Tables ─── */
+table {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gimi-border-card);
+}
+
+table thead tr {
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+table thead th {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Footer ─── */
+.footer {
+  background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+  border-top: 1px solid rgba(162, 155, 254, 0.1);
+}
+
+.footer__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #a29bfe;
+}
+
+.footer__link-item {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footer__link-item:hover {
+  opacity: 1;
+}
+
+.footer__copyright {
+  opacity: 0.5;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 92, 231, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 92, 231, 0.45);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: rgba(162, 155, 254, 0.2);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(162, 155, 254, 0.4);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(108, 92, 231, 0.3);
+}
+
+[data-theme='dark'] ::selection {
+  background: rgba(162, 155, 254, 0.3);
+}
+
+/* ─── Responsive ─── */
+@media screen and (max-width: 996px) {
+  .markdown h1:first-child {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .markdown h1:first-child {
+    font-size: 1.5rem;
+  }
 }

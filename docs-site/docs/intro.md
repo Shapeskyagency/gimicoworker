@@ -3,11 +3,11 @@ sidebar_position: 1
 slug: /
 ---
 
-# CLI-AGT
+# GimiCoworker
 
-**Multi-Agent OS Control System powered by Google Gemini**
+**Multi-AI Agent OS Control System — Gemini, OpenAI, Claude, Moonshot & Ollama**
 
-CLI-AGT lets you create **unlimited AI agents**, each with a specialized role, that can **fully control your computer**. Manage files, run commands, monitor processes, make API calls — all through natural language. Access your agents from the terminal or remotely via **Telegram**.
+GimiCoworker lets you create **unlimited AI agents**, each with a specialized role, that can **fully control your computer**. Manage files, run commands, monitor processes, make API calls, automate social media, scrape websites — all through natural language. Access your agents from the terminal or remotely via **Telegram**.
 
 ## What Can It Do?
 
@@ -26,9 +26,8 @@ Agent: *executes commands* Created React project with TypeScript template.
 ```
 
 ```
-You:   "Check which ports are open and what's listening on port 3000"
-Agent: *checks network* Port 3000: node.exe (PID 12345) - your dev server
-       Port 5432: postgres (PID 6789) - PostgreSQL database
+You:   "Send a WhatsApp message to John: the deployment is done"
+Agent: *whatsapp_send* Message sent to John successfully.
 ```
 
 ## Key Features
@@ -36,40 +35,46 @@ Agent: *checks network* Port 3000: node.exe (PID 12345) - your dev server
 | Feature | Description |
 |---------|-------------|
 | **Multi-Agent** | Create unlimited agents with different roles |
-| **29 OS Tools** | Shell, filesystem, processes, network, memory |
+| **5 AI Providers** | Gemini, OpenAI, Claude, Moonshot/Kimi, Ollama (local) |
+| **60+ Tools** | Shell, filesystem, network, social media, vision, scraping, and more |
 | **Persistent Memory** | Agents remember across conversations (SQLite) |
 | **Persistent Agents** | Agents survive restarts — automatically saved and restored |
 | **Shared Memory** | Agents communicate with each other |
 | **Folder Restrictions** | Lock agents to specific directories |
 | **Telegram Bots** | Unlimited bots, each controlling one agent |
-| **7 Built-in Roles** | General, DevOps, Coder, Security, SysAdmin, FileManager, Researcher |
-| **Custom Roles** | Define your own agent with a custom prompt |
-| **Multiple Models** | Gemini Flash, Pro, and more per agent |
+| **Social Media** | WhatsApp (12 tools) and Instagram (19 tools) automation |
+| **Vision & Scraping** | Take screenshots, analyze images, scrape webpages |
+| **Workflows** | Multi-step automation pipelines with variable interpolation |
+| **Task Scheduler** | Cron-based recurring AI tasks |
+| **8 Built-in Roles** | General, DevOps, Coder, Security, SysAdmin, FileManager, Researcher, Custom |
+| **Per-Agent Models** | Each agent can use a different AI provider and model |
 | **Auto Update** | Checks for new versions on startup; update with `gimi update` |
-| **Home Directory Storage** | All data stored in `~/.gimicoworker/` — works from any directory |
 
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────────┐
-│              CLI   /   Telegram Bots              │
-│             (User Interface Layer)                │
-├──────────────────────────────────────────────────┤
-│                Agent Manager                      │
-│      (Create, Switch, Remove, Restrict)           │
-├───────┬───────┬───────┬───────┬──────────────────┤
-│Agent 1│Agent 2│Agent 3│  ...  │     Agent N      │
-│General│DevOps │Coder  │       │     Custom       │
-├───────┴───────┴───────┴───────┴──────────────────┤
-│              Gemini API Client                    │
-│         (Tool calling + Chat loop)                │
-├──────────────────────────────────────────────────┤
-│             Tool Registry (29 tools)              │
-│ Shell │ Files │ Process │ Network │ Memory        │
-├──────────────────────────────────────────────────┤
-│         Data Storage (~/.gimicoworker/)           │
-│  SQLite DB │ Agents JSON │ Skills │ Config        │
-└──────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│               CLI   /   Telegram Bots                    │
+│              (User Interface Layer)                       │
+├──────────────────────────────────────────────────────────┤
+│                  Agent Manager                            │
+│       (Create, Switch, Remove, Restrict)                  │
+├────────┬────────┬────────┬────────┬──────────────────────┤
+│Agent 1 │Agent 2 │Agent 3 │  ...   │      Agent N         │
+│Gemini  │OpenAI  │Claude  │        │      Ollama          │
+├────────┴────────┴────────┴────────┴──────────────────────┤
+│              Multi-Provider AI Layer                      │
+│    Gemini │ OpenAI │ Claude │ Moonshot │ Ollama           │
+├──────────────────────────────────────────────────────────┤
+│              Tool Registry (60+ tools)                    │
+│ Shell │ Files │ Process │ Network │ Memory │ Social       │
+│ Vision │ Scraping │ Clipboard │ Notifications             │
+├──────────────────────────────────────────────────────────┤
+│       Workflow Engine  │  Task Scheduler (Cron)           │
+├──────────────────────────────────────────────────────────┤
+│          Data Storage (~/.gimicoworker/)                   │
+│  SQLite DB │ Agents JSON │ Skills │ Config                │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ## Quick Start
@@ -81,6 +86,13 @@ npm install -g gimicoworker
 Set your API key on first run:
 ```
 GEMINI_API_KEY=your-api-key-here
+```
+
+Optionally add other providers:
+```env
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+MOONSHOT_API_KEY=sk-...
 ```
 
 Run:

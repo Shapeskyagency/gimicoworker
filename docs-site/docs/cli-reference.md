@@ -35,13 +35,13 @@ Send a single message and get a response.
 ```bash
 gimi run "What's my disk usage?"
 gimi run -r coder "Write a hello world in Python"
-gimi run -m gemini-2.5-pro-preview-05-06 "Plan an API"
+gimi run -m gpt-4o "Plan an API"
 ```
 
 | Flag | Description |
 |------|-------------|
 | `-r, --role <role>` | Agent role (default: general) |
-| `-m, --model <model>` | Gemini model to use |
+| `-m, --model <model>` | AI model to use (any provider) |
 
 ### `gimi exec <command>`
 AI-interpreted command execution.
@@ -94,7 +94,7 @@ gimi bot:add -t TOKEN -n "Bot Name" -r coder
 | `-t, --token` | Yes | Bot token from @BotFather |
 | `-n, --name` | Yes | Display name |
 | `-r, --role` | No | Agent role (default: general) |
-| `-m, --model` | No | Gemini model (default: gemini-2.0-flash) |
+| `-m, --model` | No | AI model (default: gemini-2.0-flash) |
 | `-p, --prompt` | No | Custom system prompt |
 | `-u, --username` | No | Bot @username |
 
@@ -117,7 +117,7 @@ gimi bot:remove 3
 List all available agent roles.
 
 ### `gimi models`
-List all available Gemini models.
+List all available AI models across all providers.
 
 ---
 
@@ -137,8 +137,8 @@ These commands work inside the interactive session (`gimi`):
 | `/restrict clear` | Remove folder restrictions |
 | `/restrict` | Show current restrictions |
 | `/reset` | Reset conversation (keeps memory) |
-| `/tools` | Show all 29 available tools |
-| `/model <model>` | Change AI model |
+| `/tools` | Show all available tools |
+| `/model <model>` | Change AI model (any provider) |
 | `/status` | System status dashboard |
 | `/history` | Show last 20 messages |
 | `/clear` | Clear the terminal |
@@ -167,6 +167,9 @@ All data is stored in your home directory and persists regardless of which direc
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `GEMINI_API_KEY` | Yes | Google Gemini API key |
+| `OPENAI_API_KEY` | No | OpenAI API key |
+| `ANTHROPIC_API_KEY` | No | Anthropic Claude API key |
+| `MOONSHOT_API_KEY` | No | Moonshot/Kimi API key |
 | `TELEGRAM_BOT_TOKEN` | No | Master Telegram bot token |
 
 Set in `.env` file or as system environment variables.

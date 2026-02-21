@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Tools
 
-Tools are the actions an agent can perform on your computer. When you ask the agent to do something, Gemini decides which tools to call and with what parameters.
+Tools are the actions an agent can perform on your computer. When you ask the agent to do something, the AI decides which tools to call and with what parameters.
+
+GimiCoworker provides **60+ tools** across 11 categories — from shell execution to social media automation.
 
 ## How Tools Work
 
@@ -12,14 +14,14 @@ Tools are the actions an agent can perform on your computer. When you ask the ag
 You: "Create a file called hello.py with a print statement"
          │
          ▼
-    Gemini AI decides:
+    AI decides:
     → Call write_file(filepath="hello.py", content="print('Hello!')")
          │
          ▼
     Tool executes on your OS
          │
          ▼
-    Result sent back to Gemini
+    Result sent back to AI
          │
          ▼
     Agent: "I've created hello.py with a print('Hello!') statement"
@@ -41,11 +43,10 @@ The AI can chain multiple tools in one response. For example, "Set up a Node.js 
 | `execute_powershell` | Run PowerShell commands (Windows — registry, WMI, etc.) |
 | `run_background_process` | Start long-running processes (servers, watchers) |
 
-**Examples the AI might execute:**
+**Examples:**
 ```bash
 execute_command("git status")
 execute_command("npm install express")
-execute_command("docker ps")
 execute_powershell("Get-Process | Sort-Object CPU -Descending | Select -First 10")
 ```
 
@@ -100,6 +101,100 @@ execute_powershell("Get-Process | Sort-Object CPU -Descending | Select -First 10
 | `shared_memory_save` | Save to global memory (all agents can read) |
 | `shared_memory_recall` | Read from global shared memory |
 
+### Social Media — WhatsApp (12 tools)
+
+| Tool | What It Does |
+|------|-------------|
+| `whatsapp_connect` | Launch browser and open WhatsApp Web |
+| `whatsapp_wait_login` | Wait for QR code scan to complete |
+| `whatsapp_send` | Send a message to a contact |
+| `whatsapp_get_chats` | Get list of recent chats |
+| `whatsapp_read_messages` | Read messages from a specific chat |
+| `whatsapp_get_unread` | Get all unread messages |
+| `whatsapp_mark_read` | Mark messages as read |
+| `whatsapp_watch` | Watch for new incoming messages |
+| `whatsapp_auto_reply` | Set up automatic reply rules |
+| `whatsapp_search` | Search messages across chats |
+| `whatsapp_status` | Check connection status |
+| `whatsapp_disconnect` | Close browser and disconnect |
+
+:::info
+WhatsApp tools use Playwright to automate WhatsApp Web. See the [WhatsApp Guide](/docs/social-media/whatsapp) for setup instructions.
+:::
+
+### Social Media — Instagram (19 tools)
+
+| Tool | What It Does |
+|------|-------------|
+| `instagram_connect` | Launch browser and open Instagram |
+| `instagram_wait_login` | Wait for login to complete |
+| `instagram_like_post` | Like a specific post by URL |
+| `instagram_like_multiple` | Like multiple posts (batch) |
+| `instagram_comment` | Comment on a post |
+| `instagram_send_dm` | Send a direct message |
+| `instagram_get_inbox` | Get DM inbox |
+| `instagram_read_dm` | Read messages in a DM thread |
+| `instagram_watch_dm` | Watch for new DMs |
+| `instagram_auto_reply` | Set up auto-reply rules for DMs |
+| `instagram_post` | Post an image/content |
+| `instagram_analytics` | Get analytics for posts |
+| `instagram_daily_report` | Generate daily engagement report |
+| `instagram_get_profile` | Get profile information |
+| `instagram_follow` | Follow a user |
+| `instagram_unfollow` | Unfollow a user |
+| `instagram_get_notifications` | Get recent notifications |
+| `instagram_status` | Check connection status |
+| `instagram_disconnect` | Close browser and disconnect |
+
+:::info
+Instagram tools use Playwright to automate the Instagram website. See the [Instagram Guide](/docs/social-media/instagram) for setup instructions.
+:::
+
+### Vision (2 tools)
+
+| Tool | What It Does |
+|------|-------------|
+| `take_screenshot` | Capture a screenshot of the current screen |
+| `analyze_image` | Analyze an image file using AI vision |
+
+### Web Scraping (2 tools)
+
+| Tool | What It Does |
+|------|-------------|
+| `scrape_webpage` | Scrape content from a webpage URL |
+| `extract_links` | Extract all links from a webpage |
+
+### Clipboard (2 tools)
+
+| Tool | What It Does |
+|------|-------------|
+| `clipboard_read` | Read current clipboard contents |
+| `clipboard_write` | Write text to clipboard |
+
+### Notifications (1 tool)
+
+| Tool | What It Does |
+|------|-------------|
+| `send_notification` | Send an OS-level desktop notification |
+
+## Tool Count Summary
+
+| Category | Count |
+|----------|-------|
+| Shell & Execution | 3 |
+| File System | 8 |
+| Process Management | 3 |
+| System Information | 4 |
+| Network | 5 |
+| Memory | 6 |
+| WhatsApp | 12 |
+| Instagram | 19 |
+| Vision | 2 |
+| Web Scraping | 2 |
+| Clipboard | 2 |
+| Notifications | 1 |
+| **Total** | **67** |
+
 ## Viewing Available Tools
 
 In interactive mode:
@@ -107,7 +202,7 @@ In interactive mode:
 /tools
 ```
 
-This shows all 29 tools with descriptions in a formatted table.
+This shows all tools with descriptions in a formatted table.
 
 ## Tool Execution Flow
 

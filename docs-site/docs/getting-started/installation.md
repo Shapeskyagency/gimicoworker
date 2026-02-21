@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Prerequisites
 
-Before installing CLI-AGT, make sure you have:
+Before installing GimiCoworker, make sure you have:
 
 | Requirement | Version | Check Command |
 |------------|---------|---------------|
@@ -58,8 +58,8 @@ If you see errors about `better-sqlite3`, you may need build tools:
 If you prefer to install from source:
 
 ```bash
-git clone https://github.com/your-username/cli-agt.git
-cd cli-agt
+git clone https://github.com/Shapeskyagency/gimicoworker.git
+cd gimicoworker
 npm install
 ```
 
@@ -127,7 +127,7 @@ Available Agent Roles:
 gimi
 ```
 
-You should see the CLI-AGT banner and a prompt. Type anything to start chatting!
+You should see the GimiCoworker banner and a prompt. Type anything to start chatting!
 
 On startup, GimiCoworker automatically checks for updates. If a new version is available, you will see:
 ```

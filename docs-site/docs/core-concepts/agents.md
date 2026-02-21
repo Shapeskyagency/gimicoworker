@@ -12,17 +12,19 @@ An **Agent** is an AI-powered entity that can talk to you and control your compu
 ┌─────────────────────────────────────┐
 │           Agent: "CodeBot"          │
 ├─────────────────────────────────────┤
-│  Role:    coder                     │
-│  Model:   gemini-2.0-flash         │
-│  Status:  idle / thinking / exec   │
+│  Role:     coder                    │
+│  Provider: openai                   │
+│  Model:    gpt-4o                   │
+│  Status:   idle / thinking / exec   │
 ├─────────────────────────────────────┤
 │  System Prompt (role instructions)  │
 │  + Memory context (from DB)         │
 ├─────────────────────────────────────┤
-│  Tools: 29 available                │
+│  Tools: 60+ available               │
 │  Shell, Files, Process, Net, Memory │
+│  Social, Vision, Scraping, etc.     │
 ├─────────────────────────────────────┤
-│  Gemini Chat Session                │
+│  AI Chat Session                    │
 │  (maintains conversation context)   │
 ├─────────────────────────────────────┤
 │  SQLite: history, memories, stats   │
@@ -72,9 +74,10 @@ gimi run -r coder "Write a REST API"
 
 Each agent maintains its own:
 - Conversation history
-- Chat context with Gemini
+- Chat context with the AI provider
 - Statistics (messages, tool calls, errors)
 - Persistent memory
+- Model and provider selection
 
 ## Agent Lifecycle
 
@@ -86,7 +89,7 @@ Create → Chat → (tools execute) → Response → Repeat → /exit (saved)
 ```
 
 1. **Create** — Agent is initialized with a role, model, and system prompt
-2. **Chat** — User sends a message, Gemini processes it
+2. **Chat** — User sends a message, AI processes it
 3. **Tool Execution** — AI decides which tools to call (shell, files, etc.)
 4. **Response** — AI returns the final answer
 5. **Memory** — Conversation and memories persisted to SQLite

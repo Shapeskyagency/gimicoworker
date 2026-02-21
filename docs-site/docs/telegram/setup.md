@@ -29,7 +29,7 @@ gimi telegram
 
 Output:
 ```
-  ═══ CLI-AGT Multi-Bot System ═══
+  ═══ GimiCoworker Multi-Bot System ═══
 
   Starting all Telegram bots...
 

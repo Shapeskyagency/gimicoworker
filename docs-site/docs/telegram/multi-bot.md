@@ -112,7 +112,7 @@ gimi telegram
 
 This starts **every bot simultaneously**:
 ```
-  ═══ CLI-AGT Multi-Bot System ═══
+  ═══ GimiCoworker Multi-Bot System ═══
 
   Starting all Telegram bots...
 

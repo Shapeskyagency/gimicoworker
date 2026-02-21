@@ -12,7 +12,7 @@ Let's walk through your first interactive session step by step.
 gimi
 ```
 
-You'll see the CLI-AGT banner:
+You'll see the GimiCoworker banner:
 ```
   ╔═══════════════════════════════════════════════════════╗
   ║     ██████╗██╗     ██╗       █████╗  ██████╗ ████████╗║

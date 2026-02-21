@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Quick Commands
 
-Besides interactive mode, CLI-AGT has quick one-shot commands for fast tasks.
+Besides interactive mode, GimiCoworker has quick one-shot commands for fast tasks.
 
 ## `run` — Single Question
 

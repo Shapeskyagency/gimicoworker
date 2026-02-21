@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Multi-Agent Teams
 
-The most powerful feature of CLI-AGT is running **multiple specialized agents** that work together. This guide shows you how to set up agent teams for real-world scenarios.
+The most powerful feature of GimiCoworker is running **multiple specialized agents** that work together. This guide shows you how to set up agent teams for real-world scenarios.
 
 ## How Teams Work
 
