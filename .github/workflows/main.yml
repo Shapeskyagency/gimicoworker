@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy-pages.yml
+name: Deploy Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
@@ -15,36 +15,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
-      - name: navigate to dir
-        run: cd docs-site
-       
-      - name: Install dependencies
-        run: npm install
 
-      - name: Build project
-        run: npm run build
+      - name: Install deps
+        run: npm ci
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist   # change if using build/
+      - name: Build static site
+        run: npm run build --workspace docs-site # or your own build command
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Deploy
         uses: actions/deploy-pages@v4
+        with:
+          path: docs-site/dist           # adjust if different
