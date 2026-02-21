@@ -24,7 +24,7 @@ jobs:
           node-version: 20
           
       - name: navigate to dir
-        run: cd /docs-site
+        run: cd docs-site
        
       - name: Install dependencies
         run: npm install
