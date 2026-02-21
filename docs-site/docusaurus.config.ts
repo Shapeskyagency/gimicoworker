@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://cli-agt.dev',
-  baseUrl: '/',
+   url: "https://shapeskyagency.github.io",
+  baseUrl: "/gimicoworker/",
 
   onBrokenLinks: 'throw',
 
@@ -52,7 +52,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/your-username/cli-agt',
+          href: 'https://github.com/shapeskyagency/gimicoworker',
           label: 'GitHub',
           position: 'right',
         },
